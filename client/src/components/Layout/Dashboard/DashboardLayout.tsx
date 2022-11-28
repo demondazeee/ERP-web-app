@@ -2,6 +2,11 @@ import styled from "styled-components"
 import { ListItem, UL } from "../../UI/Lists"
 import { Card } from "../Card"
 
+interface Props {
+    width?: string
+    left?: any
+}
+
 export const DashboardContainer = styled.div`
     height: 100vh;
     position: relative;
@@ -11,9 +16,22 @@ export const DashboardSide = styled.aside`
     position: fixed;
     background-color: #3B82F6;
     color: #FAFAFA;
-    width: 250px;
+    width: ${(props: Props) => props.width || '250px'};
     height: 100%;
     padding: 1rem;
+`
+
+export const DashboardSideClose = styled.div`
+    position: absolute;
+    background-color: #5B21B6;
+    padding: 5px;
+    border-radius: 50%;
+    left: ${(props: Props) => {
+        return props.left || '90%'
+    }};
+
+    display: flex;
+    cursor: pointer;
 `
 
 export const DashboardSideNav = styled.nav`

@@ -1,5 +1,7 @@
 import styled, { StyleSheetManager } from "styled-components"
 import { FiUser } from "react-icons/fi";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+
 import { Card } from "../Layout/Card"
 import { 
     DashboardContainer, 
@@ -15,7 +17,8 @@ import {
     DashboardListItem,
     DashboardCardList,
     DashboardChartGrid,
-    BarCharContainer} from "../Layout/Dashboard/DashboardLayout"
+    BarCharContainer,
+    DashboardSideClose} from "../Layout/Dashboard/DashboardLayout"
 import { LinkButton } from "../UI/Buttons"
 import { H2, H3 } from "../UI/Headings"
 import { useState } from "react";
@@ -25,7 +28,7 @@ import Charts from "../Charts/Charts";
 
 
 const Dashboard = () => {
-
+    const [showSide, setShowSide] = useState(true)
     const [chartData, setChartData] = useState({
         labels: Data.map(v => v.year),
         datasets: [
@@ -42,13 +45,17 @@ const Dashboard = () => {
             }
         ]
     })
-
+    
     return (
         <>
             <DashboardContainer>
-                <DashboardSide>
-                    <H2>user</H2>
-                    <DashboardSideNav>
+            <DashboardSide width={showSide ? '250px' : '50px'}>
+                    <DashboardSideClose left={showSide ? '90%' : '10%'} onClick={() =>{ setShowSide(prev => !prev)}}>
+                        {showSide ? <AiOutlineArrowLeft size={30} /> : <AiOutlineArrowRight size={30} />}
+                    </DashboardSideClose>
+                    {showSide && <H2>user</H2>}
+                    {showSide && (
+                        <DashboardSideNav>
                         <DashboardSideNavList>
                             <DashboardSideNavListItem>
                                 <LinkButton>Dashboard</LinkButton>
@@ -67,7 +74,8 @@ const Dashboard = () => {
                             <LinkButton>Logout</LinkButton>
                         </LogoutContainer>
                     </DashboardSideNav>
-                    
+                    )}
+
                 </DashboardSide>
                 <DashboardMainContainer>
                     <H2>Dashboard</H2>
