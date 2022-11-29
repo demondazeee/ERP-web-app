@@ -1,4 +1,3 @@
-import styled, { StyleSheetManager } from "styled-components"
 import { FiUser } from "react-icons/fi";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
@@ -22,29 +21,14 @@ import {
 import { LinkButton } from "../UI/Buttons"
 import { H2, H3 } from "../UI/Headings"
 import { useState } from "react";
-import { Data } from "../../utils/Data";
 import Charts from "../Charts/Charts";
+import { chartsData } from "../../utils/Data";
 
 
 
 const Dashboard = () => {
     const [showSide, setShowSide] = useState(true)
-    const [chartData, setChartData] = useState({
-        labels: Data.map(v => v.year),
-        datasets: [
-            {
-              label: 'Popularity of colours',
-              data: Data.map(v => v.userGain),
-              // you can set indiviual colors for each bar
-              backgroundColor: [
-                '#BBDEFB',
-                '#EF9A9A',
-                '#80CBC4',
-              ],
-              borderWidth: 1,
-            }
-        ]
-    })
+    const [chartData, setChartData] = useState(chartsData)
     
     return (
         <>
@@ -77,7 +61,7 @@ const Dashboard = () => {
                     )}
 
                 </DashboardSide>
-                <DashboardMainContainer>
+                <DashboardMainContainer margin={showSide ? '250px' : '50px'}>
                     <H2>Dashboard</H2>
                     <DashboardMain>
                         <DashboardCardList>

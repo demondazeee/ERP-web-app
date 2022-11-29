@@ -1,18 +1,17 @@
 import 'chart.js/auto';
 import { Chart, } from 'react-chartjs-2';
-import {ChartData, ChartType} from 'chart.js'
+import {ChartData, ChartType, ChartOptions} from 'chart.js'
+import { ChartDataProp } from '../../utils/ChartTypes';
 
-interface ChartDataProp{
-    data: ChartData
-    type: ChartType
-}
 
-const Charts = ({type, data}: ChartDataProp) =>{
+
+const Charts = ({type, data, options}: ChartDataProp) =>{
 
     return (
         <>
             <Chart type={type} data={data} options={{
-                maintainAspectRatio: false
+                maintainAspectRatio : false,
+                responsive: true
             }}/>
         </>
     )
