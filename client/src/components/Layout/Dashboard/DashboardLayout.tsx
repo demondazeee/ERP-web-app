@@ -3,7 +3,8 @@ import { ListItem, UL } from "../../UI/Lists"
 import { Card } from "../Card"
 
 interface Props {
-    width?: string
+    width?: string,
+    margin?: string,
     left?: any
 }
 
@@ -66,7 +67,8 @@ export const LogoutContainer = styled(DashboardSideNavListItem)`
 export const DashboardMainContainer = styled.main`
     background-color: aliceblue;
     height: 100%;
-    margin: 0 250px;
+    margin-left: ${(props: Props) => props.margin || '250px'};
+    margin-right: 250px;
     padding: 1rem;
 `
 

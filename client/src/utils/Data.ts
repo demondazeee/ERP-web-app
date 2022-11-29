@@ -1,3 +1,6 @@
+import { ChartData } from "chart.js";
+import { ChartDataProp } from "./ChartTypes";
+
 export const Data = [
     {
       id: 1,
@@ -30,3 +33,21 @@ export const Data = [
       userLost: 234
     }
   ];
+
+
+export const chartsData: ChartData = {
+  labels: Data.map(v => v.year),
+  datasets: [
+      {
+        label: 'Popularity of colours',
+        data: Data.map(v => v.userGain),
+        // you can set indiviual colors for each bar
+        backgroundColor: [
+          '#BBDEFB',
+          '#EF9A9A',
+          '#80CBC4',
+        ],
+        borderWidth: 1,
+      }
+  ]
+}
