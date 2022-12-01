@@ -48,6 +48,12 @@ const Dashboard = () => {
                                 <LinkButton>User Management</LinkButton>
                             </DashboardSideNavListItem>
                             <DashboardSideNavListItem>
+                                <LinkButton>Products</LinkButton>
+                            </DashboardSideNavListItem>
+                            <DashboardSideNavListItem>
+                                <LinkButton>Stores</LinkButton>
+                            </DashboardSideNavListItem>
+                            <DashboardSideNavListItem>
                                 <LinkButton>Logs</LinkButton>
                             </DashboardSideNavListItem>
                             <DashboardSideNavListItem>
