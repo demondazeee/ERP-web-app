@@ -11,7 +11,12 @@ const Charts = ({type, data, options}: ChartDataProp) =>{
         <>
             <Chart type={type} data={data} options={{
                 maintainAspectRatio : false,
-                responsive: true
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
             }}/>
         </>
     )
